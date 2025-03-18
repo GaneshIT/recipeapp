@@ -29,10 +29,16 @@ const Navbar = () => {
               // If logged in, show Recipe List, Add Recipe, and Logout
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">Recipe List</Link>
+                  <Link className="nav-link" to="/">Home</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/recipelist">Recipe List</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/add">Add Recipe</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/edit">Edit Recipe</Link>
                 </li>
                 <li className="nav-item">
                   <button className="btn btn-danger" onClick={handleLogout}>Logout</button>

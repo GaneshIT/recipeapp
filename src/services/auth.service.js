@@ -14,13 +14,14 @@ export const login = async (email, password) => {
       {
         response=result;
         localStorage.setItem('userId',response.user.id)
+        localStorage.setItem("token", response.token);
       })
     .catch(err=>{
         console.log(err);
     });
-  if (response.token) {
-    localStorage.setItem("token", response.token);
-  }
+  // if (response.token) {
+  //   localStorage.setItem("token", response.token);
+  // }
   return response;
 };
 export const signUp = async (user) => {

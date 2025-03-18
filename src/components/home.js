@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchRecipes, removeRecipe } from "../store/actions";
+import { fetchRecipes } from "../store/actions";
 
-const RecipeList = () => {
+const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { recipes, status } = useSelector((state) => state.recipes);
@@ -17,8 +17,7 @@ const RecipeList = () => {
 
   return (
     <div className="container">
-      <button style={{marginTop:"1%"}} className="btn btn-primary" onClick={() => navigate("/add")}>Add Recipe</button>
-      <hr />
+  
       <h2>Recipes</h2>
       <hr />
       <div className="row">
@@ -29,11 +28,8 @@ const RecipeList = () => {
                   <div className="card-header">{recipe.name} - {recipe.category}</div>
                   <div className="card-body">
                   <div className="card-text">Ingredients :{recipe.ingredients}</div><hr/>
-                  <div className="card-text">Instructions :{recipe.instructions}</div>
-                  </div>
-                  <div className="card-footer">
-                    <button onClick={() => navigate(`/edit/${recipe.id}`)} style={{float:"left"}} className="btn btn-primary">Edit</button>
-                    <button onClick={() => dispatch(removeRecipe(recipe.id))} style={{float:"right"}} className="btn btn-danger">Delete</button>
+                  <div className="card-text">Instructions :{recipe.instructions}</div><hr/>
+                  <div className="card-text">Posted by :{recipe.user.firstname}</div>
                   </div>
               </div></div>
             ))
@@ -52,4 +48,4 @@ const RecipeList = () => {
   );
 };
 
-export default RecipeList;
+export default Home;
